@@ -1,12 +1,53 @@
+.stem {
+    height: 150px;
+    width: 15px;
+    border-radius: 3px;
+    background-color: #555;
+    position: absolute; 
+    top: -150px; 
+    left: 50%; 
+}
 
-/* 
+.traffic-light {
+    height: 280px;
+    width: 125px;
+    background-color: #555;
+    border-radius: 10px;
+    border: 1px solid black;
+    position: relative;
+    top: 150px;
+    left: 50px;
+    
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.light {
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 25px;
+    border: 1px solid grey;
+}
 
-*/
+
+.glow-red {
+    box-shadow: 0px 0px 9px 4px red;
+    animation: glow 0.8s linear infinite alternate;
+  }
+  .glow-yellow {
+    box-shadow: 0px 0px 9px 4px yellow;
+    animation: glow 0.8s linear infinite alternate;
+  }
+  .glow-green {
+    box-shadow: 0px 0px 9px 4px green;
+    animation: glow 0.8s linear infinite alternate;
+  }
+  
+  @keyframes glow {
+    to {
+        box-shadow: 0px 0px 30px 20px yellowgreen;
+    }
+  }
