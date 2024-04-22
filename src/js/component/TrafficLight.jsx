@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
 //include images into your bundle
 export const TrafficLight = () => {
@@ -20,21 +21,6 @@ export const TrafficLight = () => {
         };
     }, [isRunning, color]);
 
-
-    useEffect(() => {
-        window.onYouTubeIframeAPIReady = () => {
-            const player = new window.YT.Player("video", {
-                events: {
-                    onReady: () => {
-                        setVideoPlayer(player);
-                    }
-                }
-            });
-        };
-        return () => {
-            window.onYouTubeIframeAPIReady = null;
-        };
-    }, []);
 
     const updateState = () => {
         if (color === "red") {
@@ -61,14 +47,20 @@ export const TrafficLight = () => {
             setColor('purple');
         }
     }
+
     return (
-        <div className="container">
-            <iframe
-                id="video"
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/nMmS2iOsNG8?si=D5XvG0k7ZWTDMBMg&amp;controls=0&amp;start=129&mute=1"
-            ></iframe>
+       
+         <div className="player-container">
+                <ReactPlayer
+                    url={"https://youtu.be/nMmS2iOsNG8?si=cXzFfRyNrw8qjS3e&t=129"}
+                    playing={isRunning} // para controlar la reproducción
+                    muted={true} // para silenciar el video y permitir la reproducción automática
+                    onPause={() => setIsRunning(false)} // para manejar eventos de pausa
+                    onPlay={() => setIsRunning(true)} // para manejar eventos de reproducción
+                    onReady={player => setVideoPlayer(player)}
+                    className="background-video"
+                />
+            
             <div className={`container ${purple ? "traffic-light2" : "traffic-light"}`}>
                 <div className="stem"></div>
 
