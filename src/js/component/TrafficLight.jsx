@@ -53,10 +53,10 @@ export const TrafficLight = () => {
          <div className="player-container">
                 <ReactPlayer
                     url={"https://youtu.be/nMmS2iOsNG8?si=cXzFfRyNrw8qjS3e&t=129"}
-                    playing={isRunning} // para controlar la reproducción
-                    muted={true} // para silenciar el video y permitir la reproducción automática
-                    onPause={() => setIsRunning(false)} // para manejar eventos de pausa
-                    onPlay={() => setIsRunning(true)} // para manejar eventos de reproducción
+                    playing={isRunning} 
+                    muted={true} 
+                    onPause={() => setIsRunning(false)} 
+                    onPlay={() => setIsRunning(true)} 
                     onReady={player => setVideoPlayer(player)}
                     className="background-video"
                 />
